@@ -56,7 +56,7 @@ export function useTopNavLinks(): TopNavLink[] {
   }, [status])
 
   // Documentation link (may be external)
-  // const docsLink: string | undefined = status?.docs_link as string | undefined
+  const docsLink: string | undefined = status?.docs_link as string | undefined
 
   const isAuthed = !!auth?.user
 
@@ -87,13 +87,13 @@ export function useTopNavLinks(): TopNavLink[] {
   }
 
   // Docs (supports external links)
-  // if (modules?.docs !== false) {
-  //   if (docsLink) {
-  //     links.push({ title: t('Docs'), href: docsLink, external: true })
-  //   } else {
-  //     links.push({ title: t('Docs'), href: '/docs' })
-  //   }
-  // }
+  if (modules?.docs !== false) {
+    if (docsLink) {
+      links.push({ title: t('Docs'), href: docsLink, external: true })
+    } else {
+      links.push({ title: t('Docs'), href: '/docs' })
+    }
+  }
 
   // About
   if (modules?.about !== false) {
